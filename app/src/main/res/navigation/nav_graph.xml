@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/FirstFragment">
+
+    <fragment
+        android:id="@+id/FirstFragment"
+        android:name="es.example.enrutamientoavanzado.FirstFragment"
+        android:label="@string/first_fragment_label"
+        tools:layout="@layout/fragment_first">
+
+        <!-- Ruta hacia la pantalla 2 -->
+        <action
+            android:id="@+id/action_FirstFragment_to_SecondFragment"
+            app:destination="@id/SecondFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/SecondFragment"
+        android:name="es.example.enrutamientoavanzado.SecondFragment"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/fragment_second">
+
+        <!-- Argumento que esta pantalla NECESITA recibir -->
+        <argument
+            android:name="tituloNota"
+            app:argType="string" />
+
+        <!-- Ampliación 1: segundo argumento. Valor por defecto 0 = "sin prioridad"
+             para que el deep link notas://detalle/{tituloNota} (que no la lleva) siga funcionando. -->
+        <argument
+            android:name="prioridad"
+            android:defaultValue="0"
+            app:argType="integer" />
+
+        <!-- Deep link: abre esta pantalla desde fuera de la app -->
+        <deepLink app:uri="notas://detalle/{tituloNota}" />
+
+        <!-- Ampliación 3: ruta hacia la pantalla de confirmación -->
+        <action
+            android:id="@+id/action_SecondFragment_to_ThirdFragment"
+            app:destination="@id/ThirdFragment" />
+    </fragment>
+
+    <!-- Ampliación 3: tercera pantalla -->
+    <fragment
+        android:id="@+id/ThirdFragment"
+        android:name="es.example.enrutamientoavanzado.ThirdFragment"
+        android:label="@string/third_fragment_label"
+        tools:layout="@layout/fragment_third">
+
+        <argument
+            android:name="tituloNota"
+            app:argType="string" />
+
+        <!-- Vuelve al inicio vaciando la pila hasta FirstFragment (incluido),
+             así no queda una pantalla 1 duplicada debajo. -->
+        <action
+            android:id="@+id/action_ThirdFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment"
+            app:popUpTo="@id/FirstFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>

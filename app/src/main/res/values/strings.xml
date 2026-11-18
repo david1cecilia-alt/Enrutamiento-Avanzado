@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Enrutamiento Avanzado</string>
+    <string name="action_settings">Ajustes</string>
+
+    <!-- Títulos de la barra superior (los usa el grafo) -->
+    <string name="first_fragment_label">Nueva nota</string>
+    <string name="second_fragment_label">Detalle de la nota</string>
+    <string name="third_fragment_label">Confirmación</string>
+
+    <!-- Pantalla 1 -->
+    <string name="titulo_formulario">Escribe el título de tu nota:</string>
+    <string name="hint_nota">Ej. Comprar libros de FP</string>
+    <string name="enviar_nota">Enviar nota</string>
+    <string name="error_titulo_vacio">Ingresa un título primero</string>
+    <!-- Ampliación 1: prioridad -->
+    <string name="titulo_prioridad">Prioridad (1 a 3):</string>
+    <string name="hint_prioridad">Ej. 2</string>
+    <string name="error_prioridad">La prioridad debe ser un número del 1 al 3</string>
+
+    <!-- Pantalla 2 -->
+    <string name="volver">Volver</string>
+    <string name="cargando">Cargando…</string>
+    <string name="prioridad_formato">Prioridad: %1$d</string>
+    <string name="confirmar">Confirmar nota</string>
+
+    <!-- Pantalla 3 (ampliación 3) -->
+    <string name="confirmacion_formato">Nota «%1$s» guardada correctamente.</string>
+    <string name="volver_inicio">Volver al inicio</string>
+</resources>
